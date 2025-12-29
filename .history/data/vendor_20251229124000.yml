@@ -1,0 +1,12 @@
+cdn_jsdelivr_gh: https://cdn.jsdelivr.net/gh/
+cdn_jsdelivr_npm: https://cdn.jsdelivr.net/npm/
+fastly_jsdelivr_gh: https://fastly.jsdelivr.net/gh/
+fastly_jsdelivr_npm: https://fastly.jsdelivr.net/npm/
+unpkg: https://unpkg.com/
+webcache: https://npm.webcache.cn/
+local: /resources/ # Local resources path. If your baseURL contains a subdirectory, you need to add it here.
+
+
+js:
+  clipboard:
+    src: webcache|clipboard@2.0.11/dist/clipboard.min.js

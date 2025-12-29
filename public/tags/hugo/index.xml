@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on EarthRhythm</title>
+    <link>http://localhost:8080/tags/hugo/</link>
+    <description>Recent content from EarthRhythm</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (Earth)</managingEditor>
+    <webMaster>xxx@example.com (Earth)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Mon, 01 Jan 2024 10:00:00 +0800</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:8080/tags/hugo/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>我的第一篇博客文章</title>
+      <link>http://localhost:8080/post/first-post/</link>
+      <pubDate>Mon, 01 Jan 2024 10:00:00 &#43;0800</pubDate>
+      <author>xxx@example.com (Earth)</author>
+      <guid>http://localhost:8080/post/first-post/</guid>
+      <description>
+        <![CDATA[<h1>我的第一篇博客文章</h1><p>作者：Earth（xxx@example.com）</p>
+        
+          这是我的第一篇使用 Hugo 和 Reimu 主题的博客文章
+        
+        <hr><p>本文2024-01-01首发于<a href='http://localhost:8080/'>EarthRhythm</a>，最后修改于2024-01-01</p>]]>
+      </description>
+      
+        <category>技术</category>
+      
+    </item>
+    
+  </channel>
+</rss>

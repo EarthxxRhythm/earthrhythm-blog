@@ -1,0 +1,28 @@
+baseURL = "http://localhost:1313/"
+title = "我的博客"
+languageCode = "zh-cn"
+theme = "hugo-theme-reimu"
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = false
+
+# 强制使用主题
+theme = ["hugo-theme-reimu"]
+
+# 禁用缓存
+ignoreCache = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+
+[params]
+description = "这是我完全自定义的 Hugo 博客"
+
+[[menu.main]]
+name = "首页"
+url = "/"
+weight = 1
+[[menu.main]]
+name = "归档"
+url = "/archives"
+weight = 2

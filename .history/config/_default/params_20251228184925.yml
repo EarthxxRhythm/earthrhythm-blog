@@ -1,0 +1,60 @@
+# 基本配置
+title: "我的博客"
+subtitle: "欢迎来到我的博客"
+description: "这是我使用 Hugo 和 Reimu 主题创建的博客"
+keywords: ["博客", "Hugo", "Reimu", "技术"]
+author: "作者名称"
+avatar: "avatar/avatar.jpg"
+favicon: "favicon.ico"
+banner: "images/banner.jpg"
+
+# 主题模式
+themeMode: "auto"  # auto, light, dark
+
+# 社交链接
+social:
+  github: "your-github-username"
+  twitter: "your-twitter-username"
+  email: "your-email@example.com"
+  rss: true
+
+# 首页配置
+home:
+  postsPerPage: 10
+  showDescription: true
+  showTags: true
+  showCategories: true
+
+# 文章配置
+post:
+  showToc: true
+  tocDepth: 3
+  showLicense: true
+  license: "CC BY-NC-SA 4.0"
+  showShare: true
+  showRelated: true
+  relatedCount: 5
+  showComments: true
+  showPagination: true
+
+# 代码高亮
+highlight:
+  enable: true
+  lineNos: true
+
+# 数学公式支持
+math:
+  enable: true
+
+# 评论系统（先禁用）
+comment:
+  enable: false
+
+# 搜索功能
+search:
+  enable: true
+  provider: "fuse"
+
+# 分析统计
+analytics:
+  enable: false

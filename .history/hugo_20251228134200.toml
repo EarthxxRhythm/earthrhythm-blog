@@ -1,0 +1,15 @@
+baseURL = "https://yourdomain.com"
+title = "我的自定义博客"
+languageCode = "zh-CN"
+
+[params]
+description = "这是我完全自定义的 Hugo 博客"
+
+[[menu.main]]
+name = "首页"
+url = "/"
+weight = 1
+[[menu.main]]
+name = "归档"
+url = "/archives"
+weight = 2

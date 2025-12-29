@@ -1,0 +1,9 @@
+{{ define "main" }}
+<section class="hero">
+    <h1>欢迎来到 {{ .Site.Title }}</h1>
+    <p>{{ .Site.Params.description }}</p>
+</section>
+{{ range first 5 .Site.RegularPages }}
+<!-- 显示最新5篇文章 -->
+{{ end }}
+{{ end }}

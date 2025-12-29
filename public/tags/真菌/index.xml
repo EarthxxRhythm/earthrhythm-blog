@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>真菌 on EarthRhythm</title>
+    <link>http://localhost:2111/tags/%E7%9C%9F%E8%8F%8C/</link>
+    <description>Recent content from EarthRhythm</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (Earth)</managingEditor>
+    <webMaster>xxx@example.com (Earth)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 28 Dec 2025 20:13:33 +0800</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:2111/tags/%E7%9C%9F%E8%8F%8C/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>蘑菇的语言与森林的&#34;木维网&#34;：地下互联网的智慧</title>
+      <link>http://localhost:2111/post/mushroom-language-wood-wide-web/</link>
+      <pubDate>Sun, 28 Dec 2025 20:13:33 &#43;0800</pubDate>
+      <author>xxx@example.com (Earth)</author>
+      <guid>http://localhost:2111/post/mushroom-language-wood-wide-web/</guid>
+      <description>
+        <![CDATA[<h1>蘑菇的语言与森林的"木维网"：地下互联网的智慧</h1><p>作者：Earth（xxx@example.com）</p>
+        
+          深入探索森林地下的神秘&quot;木维网&quot;——一个由真菌菌丝构成的古老互联网系统，蘑菇仅仅是这个智能网络露出的&quot;Wi-Fi信号灯&quot;
+        
+        <hr><p>本文2025-12-28首发于<a href='http://localhost:2111/'>EarthRhythm</a>，最后修改于2025-12-28</p>]]>
+      </description>
+      
+        <category>自然探索</category><category>科学前沿</category>
+      
+    </item>
+    
+  </channel>
+</rss>

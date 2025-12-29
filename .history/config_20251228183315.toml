@@ -1,0 +1,12 @@
+theme = "hugo-theme-reimu"
+
+baseURL = "https://example.org/"
+languageCode = "zh-CN"
+defaultContentLanguage = "zh-CN"
+title = "我的博客"
+
+[languages]
+  [languages.zh-CN]
+    languageName = "简体中文"
+    weight = 1
+    hasCJKLanguage = true
