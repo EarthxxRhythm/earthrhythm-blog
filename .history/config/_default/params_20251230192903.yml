@@ -1,0 +1,145 @@
+# 基本配置
+title: "H E L L O, W O R L D !"
+subtitle: "术无正邪，人分善恶"
+description: ""
+keywords: ["博客", "Hugo", "Reimu", "技术"]
+author: "Earth"
+avatar: "avatar.jpg"
+favicon: "favicon.ico"
+banner: "images/banner.jpg"
+
+# 主题模式
+themeMode: "auto"  # auto, light, dark
+
+# 侧边栏配置 - 固定在左侧
+sidebar:
+  position: left  # 将侧边栏固定在左侧
+  menu: true  # 显示侧边栏菜单按钮
+
+# 社交链接
+social:
+  github: "https://github.com/EarthxxRhythm"
+  email: "mailto:1930808767@qq.com"
+  steam: "https://steamcommunity.com/profiles/76561198841604139/"
+  rss: false
+
+# 首页配置
+home:
+  postsPerPage: 10
+  showDescription: true
+  showTags: true
+  showCategories: true
+
+reimu_cursor:
+  enable: true
+  cursor:
+    default: ../images/cursor/reimu-cursor-default.png  # this path is relative to the css/main.css, so it needs to go up one level to reach the images folder
+    pointer: ../images/cursor/reimu-cursor-pointer.png
+    text: ../images/cursor/reimu-cursor-text.png
+
+# 文章配置
+post:
+  showToc: true
+  tocDepth: 3
+  showLicense: true
+  license: "CC BY-NC-SA 4.0"
+  showShare: true
+  showRelated: true
+  relatedCount: 5
+  showComments: true
+  showPagination: true
+
+# 代码高亮
+highlight:
+  enable: true
+  lineNos: true
+
+# 数学公式支持
+math:
+  enable: true
+
+# 评论系统（先禁用）
+comment:
+  enable: false
+
+# 搜索功能
+search:
+  enable: true
+  provider: "fuse"
+
+# 分析统计
+analytics:
+  enable: false
+
+# Busuanzi 统计（禁用，因为无法访问）
+busuanzi:
+  enable: false
+  site_uv: false
+  site_pv: false
+  page_pv: false
+
+# 自定义配色方案 - 基于 banner.jpg 提取的色卡
+# 主色调: 深蓝色 (#1a365d) - 来自背景图的深色区域
+# 辅助色: 浅蓝色 (#4299e1) - 来自背景图的中间色调
+# 对比色: 橙色 (#ed8936) - 与蓝色形成对比的温暖色调
+# 背景色: 浅灰色 (#f7fafc) - 确保内容可读性
+# 文本色: 深灰色 (#2d3748) - 确保良好的可读性
+internal_theme:
+  light:
+    --red-0: '#1a365d'  # 主色调 - 深蓝色
+    --red-1: '#4299e1'  # 辅助色 - 浅蓝色
+    --red-2: '#ed8936'  # 对比色 - 橙色
+    --red-3: '#e2e8f0'  # 边框色 - 浅灰色
+    --red-4: '#f7fafc'  # 背景色 - 非常浅的灰色
+    --red-5: '#ffffff'  # 卡片背景色 - 白色
+    --red-5-5: '#f8fafc' # 悬停背景色
+    --red-6: '#f1f5f9'  # 侧边栏背景色
+    --color-red-6-shadow: 'rgba(26, 54, 93, 0.1)'  # 阴影色
+    --color-red-3-shadow: 'rgba(66, 153, 225, 0.15)'  # 高光阴影
+
+    --highlight-nav: '#ffffff'  # 导航栏背景
+    --highlight-scrollbar: '#cbd5e0'  # 滚动条颜色
+    --highlight-background: '#ffffff'  # 代码背景
+    --highlight-selection: '#bee3f8'  # 选中背景
+    --highlight-foreground: '#2d3748'  # 主要文本颜色
+    --highlight-comment: '#718096'  # 注释颜色
+    --highlight-red: '#e53e3e'  # 红色高亮
+    --highlight-orange: '#dd6b20'  # 橙色高亮
+    --highlight-yellow: '#d69e2e'  # 黄色高亮
+    --highlight-green: '#38a169'  # 绿色高亮
+    --highlight-aqua: '#3182ce'  # 蓝色高亮
+    --highlight-blue: '#2b6cb0'  # 深蓝色高亮
+    --highlight-purple: '#805ad5'  # 紫色高亮
+    --highlight-deletion: '#c53030'  # 删除文本颜色
+    --highlight-deletion-bg: '#fed7d7'  # 删除背景
+    --highlight-addition: '#276749'  # 添加文本颜色
+    --highlight-addition-bg: '#c6f6d5'  # 添加背景
+  dark:
+    --red-0: '#90cdf4'  # 主色调 - 浅蓝色
+    --red-1: '#63b3ed'  # 辅助色 - 中等蓝色
+    --red-2: '#f6ad55'  # 对比色 - 浅橙色
+    --red-3: '#4a5568'  # 边框色 - 深灰色
+    --red-4: '#2d3748'  # 背景色 - 深灰色
+    --red-5: '#1a202c'  # 卡片背景色 - 非常深的灰色
+    --red-5-5: '#2d3748' # 悬停背景色
+    --red-6: '#4a5568'  # 侧边栏背景色
+    --color-red-6-shadow: 'rgba(144, 205, 244, 0.2)'  # 阴影色
+    --color-red-3-shadow: 'rgba(99, 179, 237, 0.25)'  # 高光阴影
+
+    --highlight-nav: '#1a202c'  # 导航栏背景
+    --highlight-scrollbar: '#718096'  # 滚动条颜色
+    --highlight-background: '#1a202c'  # 代码背景
+    --highlight-selection: '#2d3748'  # 选中背景
+    --highlight-foreground: '#e2e8f0'  # 主要文本颜色
+    --highlight-comment: '#a0aec0'  # 注释颜色
+    --highlight-red: '#fc8181'  # 红色高亮
+    --highlight-orange: '#f6ad55'  # 橙色高亮
+    --highlight-yellow: '#faf089'  # 黄色高亮
+    --highlight-green: '#68d391'  # 绿色高亮
+    --highlight-aqua: '#76e4f7'  # 蓝色高亮
+    --highlight-blue: '#90cdf4'  # 深蓝色高亮
+    --highlight-purple: '#b794f4'  # 紫色高亮
+    --highlight-deletion: '#feb2b2'  # 删除文本颜色
+    --highlight-deletion-bg: '#742a2a'  # 删除背景
+    --highlight-addition: '#9ae6b4'  # 添加文本颜色
+    --highlight-addition-bg: '#22543d'  # 添加背景

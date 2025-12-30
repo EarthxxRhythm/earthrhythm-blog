@@ -1,7 +1,7 @@
 # 基本配置
-title: "EarthRhythm"
+title: "H E L L O, W O R L D !"
 subtitle: "术无正邪，人分善恶"
-description: "这是我使用 Hugo 和 Reimu 主题创建的博客"
+description: ""
 keywords: ["博客", "Hugo", "Reimu", "技术"]
 author: "Earth"
 avatar: "avatar.jpg"
@@ -29,6 +29,24 @@ home:
   showDescription: true
   showTags: true
   showCategories: true
+
+preloader:
+  enable: true
+  text: 
+    zh-CN: 加载中...
+    zh-TW: 加载中...
+    en: Loading...
+    ja: 加载中...
+    pt-BR: Carregando...
+  icon: # default use inline svg for fast speed, you can use a image url, like '/images/taichi.png'
+  rotate: true # whether to rotate the icon
+
+reimu_cursor:
+  enable: true
+  cursor:
+    default: ../images/cursor/my-cursor-default.png  # this path is relative to the css/main.css, so it needs to go up one level to reach the images folder
+    pointer: ../images/cursor/my-cursor-pointer.png
+    text: ../images/cursor/my-cursor-text.ani
 
 # 文章配置
 post:

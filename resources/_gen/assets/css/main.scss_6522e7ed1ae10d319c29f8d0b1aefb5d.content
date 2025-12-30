@@ -3,9 +3,9 @@
   --footer-icon: url(../images/taichi.png);
   --top-icon: url(../images/taichi.png);
   --sponsor-icon: url(../images/taichi.png);
-  --cursor-default: url(../images/cursor/reimu-cursor-default.png), auto;
-  --cursor-pointer: url(../images/cursor/reimu-cursor-pointer.png), pointer;
-  --cursor-text: url(../images/cursor/reimu-cursor-text.png), text;
+  --cursor-default: url(../images/cursor/my-cursor-default.png), auto;
+  --cursor-pointer: url(../images/cursor/my-cursor-pointer.png), pointer;
+  --cursor-text: url(../images/cursor/my-cursor-text.ani), text;
 }
 
 :root {
