@@ -1,38 +1,38 @@
-# EarthRhythm Clean Relaunch Design
+# EarthRhythm 干净重启设计
 
-Date: 2026-05-25
+日期：2026-05-25
 
-## Goal
+## 目标
 
-Relaunch the existing EarthRhythm blog as a clean, maintainable Hugo site deployed to a Vercel preview domain. The work keeps the current Hugo stack and theme, keeps existing article content unchanged, and focuses on making the project stable, coherent, and easier to maintain.
+将现有 EarthRhythm 博客重新整理为一个干净、可维护、可以稳定部署到 Vercel 临时域名的 Hugo 站点。本次工作保留当前 Hugo 技术栈和主题，保留现有文章内容不变，重点让项目变得稳定、清晰，并更适合后续长期维护。
 
-## Scope
+## 范围
 
-In scope:
+本次包含：
 
-- Fix Hugo configuration issues that prevent reliable local builds or Vercel deployments.
-- Keep `baseURL` aligned with the Vercel temporary domain.
-- Refresh non-article site copy: homepage, about page, title, subtitle, description, menus, and metadata.
-- Preserve the existing EarthRhythm brand feeling.
-- Clean repository structure so generated files and local build artifacts are not treated as source.
-- Update deployment and project documentation so the next launch path is clear.
+- 修复影响本地构建或 Vercel 部署稳定性的 Hugo 配置问题。
+- 将 `baseURL` 保持为 Vercel 临时域名。
+- 整理非文章内容：首页、关于页、站点标题、副标题、描述、菜单和元信息。
+- 保留现有的 EarthRhythm 品牌感。
+- 清理仓库结构，让生成文件和本地构建产物不再作为主要源码维护。
+- 更新部署和项目文档，让下一次上线路径清晰可复现。
 
-Out of scope:
+本次不包含：
 
-- Editing article body content.
-- Replacing Hugo or the current theme.
-- Adding major new features.
-- Configuring a custom domain.
+- 修改文章正文内容。
+- 替换 Hugo 或当前主题。
+- 添加大型新功能。
+- 配置自定义域名。
 
-## Current Project Context
+## 当前项目情况
 
-The repository is a Hugo static blog using `hugo-theme-reimu`. It contains source content under `content/`, static assets under `static/`, theme files under `themes/`, configuration in `hugo.toml` and `config/_default/params.yml`, Vercel deployment settings, and generated output under `public/` and `resources/_gen/`.
+仓库是一个使用 `hugo-theme-reimu` 的 Hugo 静态博客。源码内容位于 `content/`，静态资源位于 `static/`，主题位于 `themes/`，配置主要在 `hugo.toml` 和 `config/_default/params.yml`，另外还有 Vercel 部署配置，以及已经生成的 `public/` 和 `resources/_gen/`。
 
-Some displayed Chinese text appears as mojibake in terminal output, so configuration and markdown files need to be reviewed and rewritten with clean UTF-8 text where they are part of the site shell. Existing article files are left untouched unless a build failure requires a minimal metadata fix.
+终端输出中能看到部分中文显示为乱码，因此站点外壳相关的配置和 Markdown 页面需要用干净的 UTF-8 文本重写或修正。现有文章文件保持不动；除非构建失败明确需要最小范围的元信息修复，否则不改文章。
 
-## Engineering Design
+## 工程设计
 
-The source of truth will be the Hugo source tree, not generated output. The relaunch should keep these maintained:
+项目的维护对象应该是 Hugo 源码树，而不是生成后的页面。重启后主要维护以下内容：
 
 - `hugo.toml`
 - `config/_default/params.yml`
@@ -43,48 +43,48 @@ The source of truth will be the Hugo source tree, not generated output. The rela
 - `static/`
 - `themes/`
 - `vercel.json`
-- project documentation
+- 项目文档
 
-Generated files such as `public/`, `resources/_gen/`, and `.hugo_build.lock` should be ignored going forward. If they are already tracked, remove them from tracking without deleting the working source files needed by Hugo.
+`public/`、`resources/_gen/`、`.hugo_build.lock` 等生成文件应该在后续被忽略。如果它们已经被 Git 跟踪，则从版本跟踪中移除，但不删除 Hugo 构建所需的源码文件。
 
-## Brand And Content Design
+## 品牌与内容设计
 
-The blog should keep the EarthRhythm identity while sounding more finished:
+博客保留 EarthRhythm 身份，同时让表达更像一个完成度较高的个人知识博客：
 
-- Site title: use `EarthRhythm` as the main brand.
-- Subtitle and description: short, reflective, and suitable for a personal knowledge blog.
-- Homepage: a concise welcome page that explains what the blog is for without touching the post list behavior supplied by the theme.
-- About page: replace deployment-checklist style content with a clear personal/site introduction.
-- Menu labels: keep simple Chinese navigation for home, archives, tags, categories, and about.
-- Social links: keep GitHub and email if currently configured; avoid enabling unused integrations.
+- 站点标题：以 `EarthRhythm` 作为主品牌。
+- 副标题和描述：简短、有个人气质，适合知识型个人博客。
+- 首页：用简洁欢迎语说明这个博客记录什么，不破坏主题自带的文章列表行为。
+- 关于页：替换现有部署检查清单式内容，改成清楚的个人/站点介绍。
+- 菜单标签：保留简洁中文导航，包括首页、归档、标签、分类和关于。
+- 社交链接：保留当前已有的 GitHub 和邮箱；不启用未使用的集成。
 
-## Deployment Design
+## 部署设计
 
-Vercel is the first deployment target. The site should build from source with Hugo and publish Hugo's generated output. The design assumes the Vercel temporary domain is the public launch target for now, not a custom domain.
+Vercel 是第一部署目标。站点应该从 Hugo 源码构建，并发布 Hugo 生成的输出目录。本次默认使用 Vercel 临时域名作为公开访问地址，不处理自定义域名。
 
-The deployment documentation should describe:
+部署文档需要说明：
 
-- Local build command.
-- Vercel import settings.
-- Expected output directory.
-- How to verify homepage, article pages, CSS, and navigation.
+- 本地构建命令。
+- Vercel 导入设置。
+- 预期输出目录。
+- 如何验证首页、文章页、CSS 和导航。
 
-## Verification
+## 验证方式
 
-Before calling the relaunch complete, run:
+完成前需要运行：
 
-- A Hugo build command.
-- A local preview if Hugo is available.
-- A repository status check showing intentional source changes.
+- Hugo 构建命令。
+- 如果本地有 Hugo，则运行本地预览。
+- Git 状态检查，确认变更都是有意修改。
 
-If Hugo is not installed locally, document that limitation and rely on configuration review plus Vercel build settings.
+如果本地没有安装 Hugo，需要明确说明这个限制，并依赖配置审查和 Vercel 构建设置作为补充验证。
 
-## Acceptance Criteria
+## 验收标准
 
-- Hugo configuration is valid and readable.
-- The site brand reads as EarthRhythm, not a temporary test site.
-- Homepage and about page contain clean, intentional copy.
-- Article content remains unchanged.
-- Vercel deployment settings target the temporary Vercel domain.
-- Generated output is ignored or removed from version tracking.
-- Documentation explains how to build and deploy the site.
+- Hugo 配置有效且可读。
+- 站点品牌显示为 EarthRhythm，而不是临时测试站。
+- 首页和关于页包含干净、有意图的文案。
+- 文章内容保持不变。
+- Vercel 部署配置指向临时 Vercel 域名。
+- 生成文件被忽略或从版本跟踪中移除。
+- 文档说明如何构建和部署站点。
