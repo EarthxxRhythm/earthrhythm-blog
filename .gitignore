@@ -1,0 +1,13 @@
+# Hugo generated output
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Local development
+.superpowers/
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
