@@ -2,7 +2,7 @@
   "buildCommand": "hugo --gc --minify",
   "outputDirectory": "public",
   "framework": "hugo",
-  "installCommand": "npm install -g hugo-extended",
+  "installCommand": "npm install -g hugo-extended@0.161.1",
   "devCommand": "hugo server -D",
   "regions": ["hkg1"]
 }
