@@ -34,7 +34,10 @@ hugo --gc --minify
 
 ## 部署
 
-当前优先部署到 Vercel 临时域名。Vercel 设置：
+**正在从 Vercel 迁移到腾讯云 EdgeOne Pages**，方案、实测依据、操作步骤与回滚方式见
+[`docs/edgeone-pages-migration.md`](docs/edgeone-pages-migration.md)。
+
+迁移期间 Vercel 仍是线上服务方与回滚目标。Vercel 设置：
 
 - Framework Preset: Hugo
 - Build Command: `hugo --gc --minify`
