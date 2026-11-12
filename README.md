@@ -34,8 +34,9 @@ hugo --gc --minify
 
 ## 部署
 
-**正在从 Vercel 迁移到腾讯云 EdgeOne Pages**，方案、实测依据、操作步骤与回滚方式见
-[`docs/edgeone-pages-migration.md`](docs/edgeone-pages-migration.md)。
+**正在从 Vercel 迁移到 GitHub Pages**（GitHub Actions 构建部署，免费）。方案、实测依据、
+操作步骤与回滚方式见 [`docs/github-pages-migration.md`](docs/github-pages-migration.md)；
+腾讯云 EdgeOne Pages 作为备选记录在 [`docs/edgeone-pages-migration.md`](docs/edgeone-pages-migration.md)。
 
 迁移期间 Vercel 仍是线上服务方与回滚目标。Vercel 设置：
 
