@@ -71,6 +71,45 @@
 
 自定义域名 `earthrhythm.cn` 尚未在 Pages Settings 中配置，阿里云 DNS 也未切换，因此线上仍走 `github.io` 子路径。Vercel 继续服务 `earthrhythm.cn`。
 
+## 迁移完成记录（2026-11-13）
+
+DNS 切换后的完整链路与两个新踩到的坑。
+
+### 坑二：切域名后必须重新部署，否则资源路径全错
+
+`configure-pages` 输出的 `base_url` 取决于当时的 Pages 配置：
+
+- 未配自定义域名时 → `https://<user>.github.io/<repo>`，产物里资源路径是 `/earthrhythm-blog/css/...`
+- 配了自定义域名后 → `https://earthrhythm.cn`，资源路径才是 `/css/...`
+
+切 DNS 后如果不重新部署，`earthrhythm.cn` 会拿到旧的子路径产物，CSS/JS 全部 404。解决方式是切换域名后强制触发一次部署（空提交或 Re-run）。
+
+### 坑三：`configure-pages` 输出的 scheme 可能是 http
+
+它输出 `http://` 还是 `https://` 取决于 Pages 是否已开启 **Enforce HTTPS**。在开启之前部署，`canonical` 与 `og:url` 会被写成 `http://earthrhythm.cn/`，影响 SEO 和分享卡片。
+
+已在 `hugo.yml` 中改为**不覆盖 baseURL**，直接用 `hugo.toml` 里的 `https://earthrhythm.cn/`，从此与 Enforce HTTPS 的状态解耦。
+
+### DNS 切换顺序（实际采用的）
+
+1. 先在 Pages Settings 填好 Custom domain（此时 DNS 未切，会有警告，但配置先存下）。
+2. 改阿里云 DNS：apex 4 条 A 记录 + `www` CNAME。**apex 必须只保留 GitHub 的 4 条 A 记录**，不能残留 `76.76.21.21`，否则 GitHub 的 DNS 校验不通过、证书不签发。
+3. 在 Pages 页面点 **Check again** 触发校验。证书签发前，`earthrhythm.cn` 的 SNI 会返回 `CN=*.github.io`，访客会看到证书错误——这段时间是危险窗口，越短越好。
+4. 证书签发后（本次约数分钟）勾选 **Enforce HTTPS**。
+
+### 切换后实测（2026-11-13）
+
+| 检查项 | 结果 |
+| --- | --- |
+| `https://earthrhythm.cn/` | 200，TLS 238ms，TTFB 508ms |
+| `og:url` | `https://earthrhythm.cn/` |
+| 资源路径 | `/css/main.min.*.css`（根路径） |
+| 文章页 `/post/fittracker-devlog/` | 200 |
+| `https://www.earthrhythm.cn/` | 301 → `https://earthrhythm.cn/` |
+| 证书 | `CN=earthrhythm.cn`，Let's Encrypt |
+
+TTFB 与迁移前 Vercel 的波动区间（295–940ms）重叠，**没有观测到显著加速**；这次迁移的收益主要在"不再依赖 Vercel"与"自有域名 + GitHub 全链路"，不在速度。
+
 ## 需要人工完成的两步
 
 ### 第 1 步：开启 Pages（GitHub 网页）
