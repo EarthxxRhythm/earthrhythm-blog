@@ -46,8 +46,11 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: Asia/Shanghai
+        # baseURL 取自 hugo.toml（https://earthrhythm.cn/），不依赖 configure-pages 的输出。
+        # 原因：它输出的是 http:// 还是 https:// 取决于 Pages 是否已开启 Enforce HTTPS，
+        # 会把错误的 scheme 写进 canonical / og:url。
         run: |
-          hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          hugo --gc --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
