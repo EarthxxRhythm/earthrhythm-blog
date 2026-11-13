@@ -41,6 +41,36 @@
 - 子路径构建通过：`--baseURL https://earthxxrhythm.github.io/earthrhythm-blog/` → 848ms，资源正确带前缀（`/earthrhythm-blog/css/main.min.*.css`）。
 - `static/CNAME` 会被复制进产物（`public/CNAME` = `earthrhythm.cn`）。
 
+## 实际部署记录（2026-11-13）
+
+### 坑：GitHub 自动生成的 `static.yml` 会覆盖 Hugo 产物
+
+在 Settings → Pages 里把 Source 选成 “GitHub Actions” 时，GitHub 会**自动创建** `.github/workflows/static.yml`（提交 `b202f55`）。该模板是通用静态站方案，用 `path: '.'` 上传**整个仓库根目录**；对 Hugo 项目来说，根目录没有 `index.html`，Hugo 产物在 `public/`，因此站点必然 404。
+
+实测时间线：
+
+| 时间 | 事件 |
+| --- | --- |
+| 03:30:25 | `Deploy Hugo site to Pages`（`hugo.yml`）部署完成 |
+| 03:30:45 | `Deploy static content to Pages`（`static.yml`）部署完成，**晚 20 秒覆盖前者** |
+| — | `github.io` 访问返回 404 |
+
+修复：删除 `.github/workflows/static.yml`（提交 `ec07268`）。删除前做过零引用检查——`static.yml` 文本、工作流名、`workflow_run` 交叉引用均为 0 命中。修复后 run#3 success，站点恢复 200。
+
+**结论：一旦启用 Pages，务必立即删除 GitHub 自动生成的 `static.yml`，否则它会周期性覆盖真实产物。**
+
+### 当前线上状态（已验证）
+
+- `https://earthxxrhythm.github.io/earthrhythm-blog/` → 200，TTFB 401ms
+- 新文章页 `.../post/fittracker-devlog/` → 200，TTFB 492ms
+- 资源路径正确带子路径前缀：`/earthrhythm-blog/css/main.min.*.css`（200，54377 B）
+- `js/pjax_main.js` 200（7695 B）、`images/banner.jpg` 200（1565840 B）
+- `og:url` = `https://earthxxrhythm.github.io/earthrhythm-blog/`
+
+### 待完成
+
+自定义域名 `earthrhythm.cn` 尚未在 Pages Settings 中配置，阿里云 DNS 也未切换，因此线上仍走 `github.io` 子路径。Vercel 继续服务 `earthrhythm.cn`。
+
 ## 需要人工完成的两步
 
 ### 第 1 步：开启 Pages（GitHub 网页）
