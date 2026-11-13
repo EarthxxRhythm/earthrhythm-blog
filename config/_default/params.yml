@@ -3,9 +3,9 @@ subtitle: "在知识、技术与好奇心之间寻找节律"
 description: "EarthRhythm 是一个记录技术实践、知识观察与个人思考的中文博客。"
 keywords: ["EarthRhythm", "个人博客", "Hugo", "技术", "知识记录"]
 author: "Earth"
-avatar: "avatar.jpg"
+avatar: "avatar.webp"
 favicon: "favicon.ico"
-banner: "images/banner.jpg"
+banner: "images/banner-1920.webp"
 
 themeMode: "auto"
 
